@@ -1,0 +1,482 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 TRANSITIONAL//EN">
+<html>
+
+        <head>
+                <title></title>
+                <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+type="text/javascript"></script>
+                <style>
+                        #wrapper        {
+                                height: 1200px;
+                                width: 800px;
+                                background-color: #FFF7CC;
+                        }
+
+                        #logo   {
+                                float: left;
+                                height: 50px;
+                                width: 720px;
+                                left: 0px;
+                                top: 10px;
+                                position: absolute;
+                                font-family: Helvetica;
+                                font-size: 20px;
+                                font-weight: bold;
+                                background-color: gold;
+                                color: navy;
+                                text-align: center;
+                                text-shadow: 2px 2px #00FFFF;
+                                border-radius: 10px;
+                                box-shadow:  10px 10px 5px #998200;
+                        }
+
+                        #leftmenu       {
+                                width: 250px;
+                                height: 700px;
+                                top: 70px;
+                                left: 0px;
+                                position: absolute;
+                                background-color: #FFF7CC;
+                                color: gold;
+                                font-size: 16px;
+                                font-family: Verdana;
+                                font-weight: bold;
+                        }
+
+                        #content        {
+                                width: 450px;
+                                height: 400px;
+                                top: 70px;
+                                left: 250px;
+                                float: left;
+                                position: absolute;
+                                font-family: 12px;
+                                font-family: Helvetica;
+                                background-color: #FFF7CC;
+                                color: navy;
+                                padding: 15px;
+                        }
+
+                        ul      {
+                                list-style-type: none;
+                        }
+
+                        .cd-accordion-menu input[type=checkbox]         {
+                                /* hide native checkbox */
+                                position: absolute;
+                                opacity: 0;
+                        }
+
+                        .cd-accordion-menu label, .cd-accordion-menu a  {
+                                position: relative;
+                                display: block;
+                                padding: 8px 8px 8px 24px;
+                                box-shadow: inset 0 -1px #555960;
+                                font-family: Verdana
+                                font-size: 16px;
+                                text-decoration: none;
+                        }
+
+                        .cd-accordion-menu ul   {
+                                /* by default hide all sub menus */
+                                display: none;
+                                list-style-type: none;
+                        }
+
+                        .cd-accordion-menu input[type=checkbox]:checked + label + ul,
+                        .cd-accordion-menu input[type=checkbox]:checked + label:nth-of-type(n) + ul     {
+                                /* show children when item is checked */
+                                display: block;
+                        }
+
+                        .cd-accordion-menu ul li label  {
+                                position: relative;
+                                left: -40px;
+                                width: 178px;
+                        }
+
+                        .cd-accordion-menu ul li ul li a        {
+                                position: relative;
+                                left: -80px;
+                                width: 178px;
+                                text-decoration: none;
+                        }
+
+                        .first label, .first a {
+                                background-color: #0000CC;
+                                color: gold;
+                        }
+
+                        .second label, .second a {
+                                background-color: #99CFFF;
+                                color: #998200;
+                        }
+
+                        .third label, .third a {
+                                background-color: gold;
+                                color: #0000CC;
+                        }
+
+                        #bottommenu     {
+                                display: none;
+                                height: 50px;
+                                width: 300px;
+                                float: left;
+                                position: absolute;
+                                top: 600px;
+                                left: 100px;
+                        }
+
+                        #search {
+                                border: 2px solid blue;
+                                border-radius: 10px;
+                                box-shadow: 10px 10px 5px #000080;
+                                padding: 10px;
+                        }
+
+                        #search p::first-letter {
+                                font-weight: bold;
+                                font-size: 18px;
+                                color: black;
+                        }
+
+                        #cles p::first-letter   {
+                                font-weight: bold;
+                                font-size: 18px;
+                                color: black;
+                        }
+
+                        #cles   {
+                                border: 2px solid blue;
+                                border-radius: 10px;
+                                box-shadow: 10px 10px 5px #000080;
+        `                       padding: 10px;
+                        }
+
+                        #hours  {
+                                border: 2px solid blue;
+                                border-radius: 10px;
+                                box-shadow: 10px 10px 5px #000080;
+                                padding: 10px;
+                        }
+
+                        #manager        {
+                                border: 2px solid blue;
+                                border-radius: 10px;
+                                box-shadow: 10px 10px 5px #000080;
+                                padding: 10px;
+                        }
+
+
+                        #bottommenu ul  {
+                                list-style-type: none;
+                        }
+
+                        #bottommenu     li {
+                                display: inline;
+                                width: 100px;
+                                height: 50px;
+                        }
+
+                        #bottommenu a   {
+                                display: inline-block;
+                                background-color: grey;
+                                color: black;
+                        }
+
+                @media screen and (max-device-width: 480px)     {
+
+                        #wrapper        {
+                                height: 1200px;
+                                width: 800px;
+                                background-color: #FFF7CC;
+                        }
+
+                        #logo   {
+                                float: left;
+                                height: 50px;
+                                width: 500px;
+                                left: 0px;
+                                top: 10px;
+                                position: absolute;
+                                font-family: Helvetica;
+                                font-size: 18px;
+                                font-weight: bold;
+                                background-color: gold;
+                                color: navy;
+                                text-align: center;
+                                text-shadow: 1px 1px #00FFFF;
+                                border-radius: 10px;
+                                box-shadow: 10px 10px 5px #998200;
+                        }
+
+                        #leftmenu       {
+                                width: 200px;
+                                height: 700px;
+                                top: 70px;
+                                left: -30px;
+                                position: absolute;
+                                background-color: #FFF7CC;
+                        }
+
+                        #content        {
+                                width: 300px;
+                                height: 400px;
+                                top: 70px;
+                                left: 200px;
+                                float: left;
+                                position: absolute;
+                                font-family: 10px;
+                                font-family: Helvetica;
+                                background-color: #FFF7CC;
+                                color: navy;
+                                padding: 5px;
+                        }
+
+                        #search {
+                                color: black;
+                                border-bottom: 1px solid blue;
+                                box-shadow: 10px 10px 5px #000080;
+                                padding: 10px;
+                        }
+
+                        ul      {
+                                list-style-type: none;
+                        }
+
+                        .cd-accordion-menu input[type=checkbox]         {
+                                /* hide native checkbox */
+                                position: absolute;
+                                opacity: 0;
+                        }
+
+                        .cd-accordion-menu label, .cd-accordion-menu a  {
+                                position: relative;
+                                display: block;
+                                padding: 8px 8px 8px 24px;
+                                background-color: blue;
+                                color: gold;
+                                font-family: Verdana
+                                font-size: 12px;
+                                text-decoration: none;
+                        }
+
+
+                        .cd-accordion-menu ul   {
+                                /* by default hide all sub menus */
+                                display: none;
+                                list-style-type: none;
+                        }
+
+                        .cd-accordion-menu input[type=checkbox]:checked + label + ul,
+                        .cd-accordion-menu input[type=checkbox]:checked + label:nth-of-type(n) + ul     {
+                                /* show children when item is checked */
+                                display: block;
+                        }
+
+                        .cd-accordion-menu ul li, .cd-accordion-menu ul li ul li        {
+                                width: 100px;
+                        }
+
+                        .cd-accordion-menu ul li label  {
+                                position: relative;
+                                left: -40px;
+                                width: 128px;
+                        }
+
+                        .cd-accordion-menu ul li ul li a        {
+                                position: relative;
+                                left: -80px;
+                                width: 128px;
+                                text-decoration: none;
+                        }
+
+                        .first label, .first a {
+                                background-color: #0000CC;
+                                color: gold;
+                        }
+
+                        .second label, .second a {
+                                background-color: #99CFFF;
+                                color: #998200;
+                        }
+
+                        .third label, .third a {
+                                background-color: gold;
+                                color: #0000CC;
+                        }
+
+
+
+                        #bottommenu     {
+                                display: none;
+                                height: 50px;
+                                width: 300px;
+                                float: left;
+                                position: absolute;
+                                top: 600px;
+                                left: 100px;
+                        }
+
+                        #search p::first-letter {
+                                font-weight: bold;
+                                font-size: 18px;
+                                color: black;
+                        }
+
+                        #cles p::first-letter   {
+                                font-weight: bold;
+                                font-size: 18px;
+                                color: black;
+                        }
+
+                        #cles   {
+                                border: 1px solid blue;
+                                border-radius: 10px;
+                                box-shadow: 10px 10px 5px #000080;
+                                padding: 10px;
+                        }
+
+                        #hours  {
+                                border: 1px solid blue;
+                                border-radius: 10px;
+                                box-shadow: 10px 10px 5px #000080;
+                                padding: 10px;
+                        }
+
+                        #manager        {
+                                border: 1px solid blue;
+                                border-radius: 10px;
+                                box-shadow: 10px 10px 5px #000080;
+                                padding: 10px;
+                        }
+
+                }
+                </style>
+        </head>
+        <body>
+        <div id="wrapper">
+                <div id="logo">
+                        <p>Complex Logical and Ethernet Services</p>
+                </div>
+                <div id="leftmenu">
+                        <ul class="cd-accordion-menu">
+                                <li class="first">
+                                        <input type="checkbox" name="group-1" id="group-1">
+                                        <label for="group-1">PIP   &#9660;</label>
+                                        <ul>
+                                                <li class="second">
+                                                        <input type="checkbox" name="sub-group-1" id="sub-group-1">
+                                                        <label for="sub-group-1">Circuits    &#9660;</label>
+                                                        <ul>
+                                                                <li class="third"><a href="pf2.html">10 Base T</a></li>
+                                                                <li class="third"><a href="pf2.html">1GigE</a></li>
+                                                                <li class="third"><a href="pf2.html">10GigE</a></li>
+                                                        </ul>
+                                                </li>
+                                                <li class="second">
+                                                        <input type="checkbox" name="sub-group-2" id="sub-group-2">
+                                                        <label for="sub-group-2">VLANs    &#9660;</label>
+                                                        <ul>
+                                                                <li class="third"><a href="#">1 - 16</a></li>
+                                                                <li class="third"><a href="#">17 - 1768</a></li>
+                                                                <li class="third"><a href="#">4094</a></li>
+                                                        </ul>
+                                                </li>
+                                                <li class="second">
+                                                        <input type="checkbox" name="sub-group-3" id="sub-group-3">
+                                                        <label for="sub-group-3">Tools    &#9660;</label>
+                                                        <ul>
+                                                                <li class="third"><a href="#">Logs</a></li>
+                                                                <li class="third"><a href="#">Configs</a></li>
+                                                                <li class="third"><a href="#">Statistics</a></li>
+                                                        </ul>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="first">
+                                        <input type="checkbox" name="group-2" id="group-2">
+                                        <label for="group-2">Frame Relay</label>
+                                </li>
+                                <li class="first">
+                                        <input type="checkbox" name="group-3" id="group-3">
+                                        <label for="group-3">Ethernet   &#9660;</label>
+                                        <ul>
+                                                <li class="second">
+                                                        <input type="checkbox" name="sub-group-4" id="sub-group-4">
+                                                        <label for="sub-group-4">Circuits    &#9660;</label>
+                                                        <ul>
+                                                                <li class="third"><a href="#">10BaseT</a></li>
+                                                                <li class="third"><a href="#">1GigE</a></li>
+                                                                <li class="third"><a href="#">10GigE</a></li>
+                                                        </ul>
+                                                </li>
+                                                <li class="second">
+                                                        <input type="checkbox" name="sub-group-5" id="sub-group-5">
+                                                        <label for="sub-group-5">Switches    &#9660;</label>
+                                                        <ul>
+                                                                <li class="third"><a href="#">Anda 2108</a></li>
+                                                                <li class="third"><a href="#">Anda 4000</a></li>
+                                                                <li class="third"><a href="#">Overture ISG-45</a></li>
+                                                                <li class="third"><a href="#">Overture ISG-4000</a></li>
+                                                        </ul>
+                                                </li>
+                                                <li class="second">
+                                                        <input type="checkbox" name="sub-group-6" id="sub-group-6">
+                                                        <label for="sub-group-6">Ports    &#9660;</label>
+                                                        <ul>
+                                                                <li class="third"><a href="#">T1</a></li>
+                                                                <li class="third"><a href="#">T3</a></li>
+                                                                <li class="third"><a href="#">OC-3</a></li>
+                                                                <li class="third"><a href="#">OC-48</a></li>
+                                                        </ul>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="first"><a href="#">Library</a></li>
+                                <li class="first"><a href="#">Ask CLS</a></li>
+                        </ul>
+                </div>
+                <div id="content">
+                        <div id="search">
+                        <p>Search Engine:  Please enter a term to search these technical
+documents for:
+                        <form id="searchbox">
+                                <input type="text" id="searchterm" />
+                                <input type="button" id="searchbutton" name="Search" value="Search">
+                        </form>
+                        </div>
+                        <div id="cles">
+                        <p>The Complex Logical and Ethernet Services department is a Tier
+II/Tier III Technical Support department for Maintenance Technicians
+and Engineers within Verizon Business.</p>
+                        </div>
+                        <div id="hours">
+                        <p>Operating hours:  04:01 - 20:00 EST Monday - Friday<br>
+                        On-call support provided: 20:01 EST Friday - 04:00 EST Monday</p>
+                        </div>
+                        <div id="manager">
+                        <p>Manager:  John Smith<br>
+                        Phone:  919-555-5501<br>
+                        Email:  supervisor@company.com</p>
+                        </div>
+                </div>
+                <div id="bottommenu">
+                        <table>
+                        <tr>
+                                <td width=80><img src="../images/openbook.jpg" height=50 width=100
+alt="Reference Manuals"><a href="#"></a></td>
+                                <td width=80></td>
+                                <td width=80><img src="../images/z.jpeg" height=50 width=50
+alt="Secure documents - password required"><a href="#"></a></td>
+                                <td width=80></td>
+                                <td width=80><img src="../images/i.png" height=50 width=50
+alt="Company Help Page"><a href="#"></a></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                </div>
+
+        </body>
+</html>
